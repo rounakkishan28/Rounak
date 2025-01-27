@@ -107,9 +107,9 @@ export default function Home() {
       <div className="w-[90%] sm:w-[70%] z-20">
         <div className="pt-8 px-8 top-4 flex justify-between items-center shadow-lg border-white rounded-full bg-transparent">
           <h1 className="text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-white to-gray-900">Rounak Kishan</h1>
-          <button className="h-12 animate-shimmer items-center justify-center rounded-full border border-gray-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors hover:outline-none hover:ring-1 hover:ring-slate-200 hover:ring-offset-2 hover:ring-offset-slate-200">
+          <a href='./resume.pdf' className="h-12 animate-shimmer flex items-center justify-center rounded-full border border-gray-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors hover:outline-none hover:ring-1 hover:ring-slate-200 hover:ring-offset-2 hover:ring-offset-slate-200">
             Resume
-          </button>
+          </a>
         </div>
         <div className="flex flex-col justify-center items-center h-[600px] mt-12">
           <div className="flex flex-col justify-center">
@@ -173,32 +173,32 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
             <LinkPreview url={'https://studio-ai-five.vercel.app/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">StudioAI</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform with a credit-based system and integrated payment gateway for seamless transactions. Enabled users to purchase credits to access advanced video creation and smart editing.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
             <LinkPreview url={'https://trekon-1.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">TrekOn</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">A responsive web application for travel enthusiasts to explore trending destinations, book adventure activities, and a secure payment gateway. The platform features an intuitive UI with dynamic routing using React Router and real-time chat functionality using Socket.io for enhanced customer engagement.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
             <LinkPreview url={'https://shopme-1.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">ShopMe</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">A full-stack electronics e-commerce website using the MERN stack. Implemented features such as user authentication, product listing, shopping cart, order management, and a secure payment gateway.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
             <LinkPreview url={'https://rounakkishan28.github.io/Move_It/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">MoveIt</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">A responsive frontend web application for a courier service, enabling users to track shipments and calculate delivery costs. The application features an intuitive interface, interactive forms, and real-time updates using modern frontend technologies like HTML and CSS to enhance user experience and accessibility.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
             <LinkPreview url={'https://rounakkishan28.github.io/Event-Hub/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">EventHub</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">A interactive frontend web page for an event management platform using HTML and CSS. The page included a visually appealing layout with sections for event details, schedules, and contact information, along with hover effects and a navigation menu for seamless user interaction.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
             <LinkPreview url={'https://todolist-wob8.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
               <h1 className="text-4xl mb-4">TodoList</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform, leveraging advanced artificial intelligence tools to enable seamless video creation and smart editing.</p>
+              <p className="text-gray-300 text-xl font-normal mb-2">A simple yet effective To-Do List web application using React.js for managing tasks. The app allows users to add, edit, and delete tasks, with real-time updates stored in the browser’s localStorage for persistence across sessions. Built with React.js to provide a smooth, dynamic user experience.</p>
               <p className="text-blue-800 font-light">Click here</p>
             </LinkPreview>
           </div>
