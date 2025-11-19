@@ -12,7 +12,7 @@ export const HoverEffect = ({
 
   return (
     (<div
-      className={cn("grid grid-cols-2 md:grid-cols-3  lg:grid-cols-5  py-10", className)}>
+      className={cn("grid grid-cols-2 md:grid-cols-4  py-10", className)}>
       {items.map((item, idx) => (
         <div
           key={idx}

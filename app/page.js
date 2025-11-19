@@ -1,254 +1,341 @@
-"use client"
+
+"use client";
+
 import Image from "next/image";
-import { Facebook, Instagram, Linkedin, Mail, Phone, Twitter, BrainCircuit } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  Phone,
+  Twitter,
+  BrainCircuit,
+  CircuitBoard,
+  Github as LucideGithub,
+  Github as GithubIcon,
+} from "lucide-react";
 import { FlipWords } from "../components/ui/flip-words";
 import { BackgroundBeams } from "../components/ui/background-beams";
 import { HoverEffect } from "../components/ui/card-hover-effect";
 import { LinkPreview } from "../components/ui/link-preview";
-import profile from '../public/profile.jpeg'
-import aboutImage from '../public/aboutImage.png'
-import NodeJs from '../public/nodejs.png'
-import C from '../public/c++.png'
-import React from '../public/react.png'
-import MySQL from '../public/mysql.png'
-import Neon from '../public/neon.png'
-import Socket from '../public/socket.png'
-import NextJs from '../public/nextjs.png'
-import Mongo from '../public/mongodb.svg'
-import Git from '../public/git.png'
-import Express from '../public/express.svg'
-import Tailwind from '../public/tailwind-css.svg'
-import Github from '../public/github.png'
-import Sparkle from '../public/sparkle.png'
-import Javascript from '../public/javascript.png'
-import Typescript from '../public/typescript.png'
+
+import profile from "../public/profile.jpeg";
+import aboutImage from "../public/aboutImage.png";
+import NodeJs from "../public/nodejs.png";
+import C from "../public/c++.png";
+import ReactImg from "../public/react.png";
+import MySQL from "../public/mysql.png";
+import Neon from "../public/neon.png";
+import Socket from "../public/socket.png";
+import NextJs from "../public/nextjs.png";
+import Mongo from "../public/mongodb.svg";
+import Git from "../public/git.png";
+import Express from "../public/express.svg";
+import Tailwind from "../public/tailwind-css.svg";
+import Github from "../public/github.png";
+import Javascript from "../public/javascript.png";
+import Typescript from "../public/typescript.png";
+import Java from "../public/java.png";
+import SpringBoot from "../public/springBoot.png";
 
 export default function Home() {
   const words = ["Web Developer", "Problem Solver"];
+
   const projects = [
-    {
-      title: "JavaScript",
-      description:
-        Javascript,
-    },
-    {
-      title: "ReactJs",
-      description:
-        React,
-    },
-    {
-      title: "NextJs",
-      description:
-        NextJs,
-    },
-    {
-      title: "C++",
-      description:
-        C,
-    },
-    {
-      title: "TypeScript",
-      description:
-        Typescript,
-    },
-    {
-      title: "TailwindCSS",
-      description:
-        Tailwind,
-    },
-    {
-      title: "MongoDB",
-      description:
-        Mongo,
-    },
-    {
-      title: "MySQL",
-      description:
-        MySQL,
-    },
-    {
-      title: "Neon",
-      description:
-        Neon,
-    },
-    {
-      title: "ExpressJs",
-      description:
-        Express,
-    },
-    {
-      title: "NodeJs",
-      description:
-        NodeJs,
-    },
-    {
-      title: "Gemini",
-      description:
-        Sparkle,
-    },
-    {
-      title: "Socket IO",
-      description:
-        Socket,
-    },
-    {
-      title: "Git",
-      description:
-        Git,
-    },
-    {
-      title: "GitHub",
-      description:
-        Github,
-    },
+    { title: "JavaScript", img: Javascript },
+    { title: "React", img: ReactImg },
+    { title: "Next.js", img: NextJs },
+    { title: "C++", img: C },
+    { title: "TypeScript", img: Typescript },
+    { title: "Tailwind", img: Tailwind },
+    { title: "MongoDB", img: Mongo },
+    { title: "MySQL", img: MySQL },
+    { title: "Neon", img: Neon },
+    { title: "Express", img: Express },
+    { title: "Node.js", img: NodeJs },
+    { title: "Java", img: Java },
+    { title: "Spring Boot", img: SpringBoot },
+    { title: "Socket.IO", img: Socket },
+    { title: "Git", img: Git },
+    { title: "GitHub", img: Github },
   ];
+
+  const social = [
+    { Icon: Linkedin, href: "https://www.linkedin.com/in/rounak-kishan-931394257/", label: "LinkedIn" },
+    { Icon: LucideGithub, href: "https://github.com/rounakkishan28", label: "GitHub" },
+    { Icon: Facebook, href: "https://www.facebook.com/rounak.kishan.3", label: "Facebook" },
+    { Icon: Twitter, href: "https://x.com/rounak_kishan28", label: "X" },
+    { Icon: Instagram, href: "https://www.instagram.com/_rounak_kishan/", label: "Instagram" },
+  ];
+
   return (
-    <div className="bg-neutral-950 flex flex-col pb-8 items-center min-h-screen text-gray-200">
-      <div className="w-[90%] sm:w-[70%] z-20">
-        <div className="pt-8 px-8 top-4 flex justify-between items-center shadow-lg border-white rounded-full bg-transparent">
-          <h1 className="text-3xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-white to-gray-900">Rounak Kishan</h1>
-          <a href='./resume.pdf' className="h-12 animate-shimmer flex items-center justify-center rounded-full border border-gray-200 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors hover:outline-none hover:ring-1 hover:ring-slate-200 hover:ring-offset-2 hover:ring-offset-slate-200">
-            Resume
-          </a>
-        </div>
-        <div className="flex flex-col justify-center items-center h-[600px] mt-12">
-          <div className="flex flex-col justify-center">
-            <Image src={profile} alt="profile" height={150} width={150} className="rounded-full" />
+    <div className="bg-neutral-950 min-h-screen text-gray-200 flex flex-col items-center pb-12">
+      <div className="w-[92%] sm:w-[80%] lg:w-[70%] z-20">
+        {/* Header */}
+        <motion.header
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="sticky top-6 z-50 backdrop-blur-md bg-white/3 border border-white/6 rounded-full p-4 flex items-center justify-between shadow-md"
+        >
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-gray-200 via-white to-gray-300">
+              Rounak Kishan
+            </h1>
+            <span className="hidden sm:inline-block px-3 py-1 text-xs rounded-full bg-white/5 border border-white/6 text-gray-300">
+              B.Tech CSE • Web & Backend
+            </span>
           </div>
-          <div className="flex flex-col justify-center mt-4">
-            <h2 className="text-lg sm:text-xl md:text-2xl text-center text-gray-400 mb-2">Hi there! I'm</h2>
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-white to-gray-900">Rounak Kishan</h1>
-            <FlipWords words={words} />
+
+          <div className="flex items-center gap-4">
+            <a
+              href="./Rounak Kishan.pdf"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-600 bg-gradient-to-b from-white/3 to-transparent text-sm font-medium hover:scale-105 transition"
+              aria-label="Download resume"
+            >
+              Resume
+            </a>
+
+            <nav className="hidden sm:flex items-center gap-3">
+              {social.map(({ Icon, href, label }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 rounded-lg border border-transparent hover:border-white/10 hover:bg-white/3 transition"
+                  aria-label={label}
+                >
+                  <Icon width={20} height={20} />
+                </a>
+              ))}
+            </nav>
+
+            {/* mobile social menu */}
+            <div className="sm:hidden flex items-center gap-2">
+              <button
+                aria-label="open-socials"
+                className="p-2 rounded-md border border-gray-600"
+                onClick={() => window.scrollTo({ top: 450, behavior: 'smooth' })}
+              >
+                <LucideGithub width={18} height={18} />
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-10 mt-10">
-            <a href="https://www.facebook.com/rounak.kishan.3" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-br hover:from-gray-500 hover:to-gray-900 transition border border-gray-700 p-4 rounded-xl">
-              <Facebook width={30} height={30} />
+        </motion.header>
+
+        {/* Hero */}
+        <section className="flex flex-col items-center text-center mt-20">
+          <motion.div
+            initial={{ scale: 0.98, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center"
+          >
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-[0_8px_30px_rgba(255,255,255,0.06)]">
+              <Image
+                src={profile}
+                alt="Rounak Kishan"
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 640px) 160px, 192px"
+              />
+              <span className="absolute -bottom-3 -right-3 bg-gradient-to-tr from-sky-400 to-violet-400 rounded-full p-1 shadow-lg" />
+            </div>
+
+            <h2 className="mt-6 text-lg sm:text-xl text-gray-400">Hi there! I'm</h2>
+            <h1 className="mt-2 text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-gray-200 via-white to-gray-300">
+              Rounak Kishan
+            </h1>
+
+            <div className="mt-3 text-xl">
+              <FlipWords words={words} />
+            </div>
+
+            {/* Clean social bar for smaller screens */}
+            <div className="mt-6 flex gap-4 sm:hidden">
+              {social.map(({ Icon, href, label }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-3 rounded-xl border border-gray-600 hover:bg-white/5 transition"
+                  aria-label={label}
+                >
+                  <Icon width={20} height={20} />
+                </a>
+              ))}
+            </div>
+
+          </motion.div>
+
+          {/* Quick contact CTA */}
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.45 }}
+            className="mt-8 flex gap-3"
+          >
+            <a
+              href="mailto:rounakkishan28@gmail.com"
+              className="px-5 py-3 rounded-full border border-gray-600 hover:scale-105 transition"
+            >
+              Contact Me
             </a>
-            <div className="flex justify-center items-center"><p>--:--</p></div>
-            <a href="https://x.com/rounak_kishan28" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-br hover:from-gray-500 hover:to-gray-900 transition border border-gray-700 p-4 rounded-xl">
-              <Twitter width={30} height={30} />
+            <a
+              href="tel:+919155272627"
+              className="px-5 py-3 rounded-full border border-transparent bg-white/3 hover:scale-105 transition"
+            >
+              Call
             </a>
-            <div className="flex justify-center items-center"><p>--:--</p></div>
-            <a href="https://www.instagram.com/_rounak_kishan/" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-br hover:from-gray-500 hover:to-gray-900 transition border border-gray-700 p-4 rounded-xl">
-              <Instagram width={30} height={30} />
-            </a>
-            <div className="flex justify-center items-center"><p>--:--</p></div>
-            <a href="https://www.linkedin.com/in/rounak-kishan-931394257/" target="_blank" rel="noopener noreferrer" className="hover:bg-gradient-to-br hover:from-gray-500 hover:to-gray-900 transition border border-gray-700 p-4 rounded-xl">
-              <Linkedin width={30} height={30} />
-            </a>
+          </motion.div>
+        </section>
+
+        {/* About */}
+        <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <motion.div
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center"
+          >
+            <div className="w-full max-w-md rounded-2xl overflow-hidden shadow-lg">
+              <Image src={aboutImage} alt="about" width={520} height={400} className="object-cover" />
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-gray-900">
+              About Me
+            </h3>
+            <div className="w-28 h-1 bg-gradient-to-r from-gray-300 to-gray-600 rounded-full my-4" />
+
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Hi, I'm Rounak Kishan — a passionate technologist merging creativity with code to build meaningful software. I am currently pursuing a B.Tech in Computer Science and Engineering at Birsa Institute of Technology Sindri, Dhanbad. I focus on web & backend development, system design, and problem solving.
+            </p>
+
+            <ul className="mt-6 space-y-2 text-gray-300">
+              <li>• Production-ready backend systems with Spring Boot & PostgreSQL</li>
+              <li>• Frontend applications with React / Next.js and Tailwind CSS</li>
+              <li>• Real-time features using Socket.IO and scalable data stores (MongoDB / MySQL)</li>
+            </ul>
+
+          </motion.div>
+
+        </section>
+
+        {/* Skills */}
+        <section className="mt-24">
+          <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-gray-900 text-center">
+            My Skills
+          </h3>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <motion.div whileHover={{ y: -6 }} className="p-6 border border-gray-700 rounded-2xl bg-white/2">
+              <div className="text-[84px] text-center text-neutral-500">{`</>`}</div>
+              <h4 className="text-2xl mt-4 text-center">Web Development</h4>
+              <p className="mt-3 text-gray-300">I build responsive, performant web apps — from UI to APIs — with an emphasis on clean code and good UX.</p>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -6 }} className="p-6 border border-gray-700 rounded-2xl bg-white/2">
+              <div className="flex justify-center items-center"><BrainCircuit className="w-24 h-24" /></div>
+              <h4 className="text-2xl mt-4 text-center">Problem Solving</h4>
+              <p className="mt-3 text-gray-300">I enjoy tackling algorithmic and systems problems — designing robust, efficient solutions under constraints.</p>
+            </motion.div>
+
+            <motion.div whileHover={{ y: -6 }} className="p-6 border border-gray-700 rounded-2xl bg-white/2">
+              <div className="flex justify-center items-center"><CircuitBoard className="w-24 h-24" /></div>
+              <h4 className="text-2xl mt-4 text-center">System Design (LLD)</h4>
+              <p className="mt-3 text-gray-300">Designing modular, maintainable low-level designs for services, focusing on scalability and clarity.</p>
+            </motion.div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center items-center min-h-[700px] mt-12">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-900">About Me</h1>
-          <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-16 mt-4">
+        </section>
+
+        {/* Tech Stack */}
+        <section className="mt-24">
+          <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-gray-900 text-center">Tech Stack</h3>
+
+          <div className="mt-8">
+            <HoverEffect items={projects.map(p => ({ title: p.title, description: p.img }))} />
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className="mt-24">
+          <h3 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-gray-900 text-center">Projects</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <LinkPreview url={"https://www.github.com/rounakkishan28/MedPoint-Server"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">MedPoint</h4>
+              <p className="mt-3 text-gray-300">Production-ready hospital backend built with Spring Boot and PostgreSQL — patient management, appointments, billing.</p>
+              <p className="mt-4 text-blue-400 underline">View on GitHub</p>
+            </LinkPreview>
+
+            <LinkPreview url={"https://studio-ai-five.vercel.app/"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">StudioAI</h4>
+              <p className="mt-3 text-gray-300">AI-powered video generation & editing platform with a credit system and integrated payments.</p>
+              <p className="mt-4 text-blue-400 underline">Open Demo</p>
+            </LinkPreview>
+
+            <LinkPreview url={"https://quiz-ai-xi.vercel.app"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">QuizAI</h4>
+              <p className="mt-3 text-gray-300">AI-driven quiz app with performance analytics, XP, and progress graphs.</p>
+              <p className="mt-4 text-blue-400 underline">Open Demo</p>
+            </LinkPreview>
+
+            <LinkPreview url={"https://trekon-1.onrender.com/"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">TrekOn</h4>
+              <p className="mt-3 text-gray-300">A travel app with booking, real-time chat, and dynamic routing using React Router.</p>
+              <p className="mt-4 text-blue-400 underline">Open Demo</p>
+            </LinkPreview>
+
+            <LinkPreview url={"https://shopme-1.onrender.com/"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">ShopMe</h4>
+              <p className="mt-3 text-gray-300">MERN e-commerce with authentication, cart, orders, and secure payments.</p>
+              <p className="mt-4 text-blue-400 underline">Open Demo</p>
+            </LinkPreview>
+
+            <LinkPreview url={"https://rounakkishan28.github.io/Move_It/"} className="p-6 rounded-xl border border-gray-700 hover:shadow-xl hover:-translate-y-2 transition-all">
+              <h4 className="text-2xl text-neutral-400 font-bold">MoveIt</h4>
+              <p className="mt-3 text-gray-300">A courier frontend app for tracking shipments and delivery cost calculations.</p>
+              <p className="mt-4 text-blue-400 underline">Open Demo</p>
+            </LinkPreview>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="mt-20 text-gray-200">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-t border-white/6 pt-8">
             <div>
-              <h1 className="text-2xl -mb-3">Merging Creativity with Code to Shape a Better Tomorrow</h1>
-              <p className="mb-4">____________________</p>
-              <p className="text-xl">Hi, I'm Rounak Kishan – a passionate technologist driven to create a brighter future by blending innovation and creativity. I am currently pursuing a B.Tech in Computer Science and Engineering at Birsa Institute of Technology Sindri, Dhanbad. As a dedicated web developer and problem solver, I strive to craft meaningful solutions that leave a positive impact on the world.</p>
-            </div>
-            <Image src={aboutImage} alt="about-image" height={400} width={400} />
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center min-h-[700px] mt-12">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-900">My Domains</h1>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-16 mt-12">
-            <div className="flex flex-col justify-end hover:shadow-md hover:shadow-gray-200 p-6 border rounded-2xl border-gray-700 h-[400px]">
-              <h1 className="text-[130px] text-center text-gray-900">{'</>'}</h1>
-              <h1 className="text-3xl mb-8">Web Development</h1>
-              <p className="text-xl">If you're looking for a web developer to bring your vision to life, I'm here to handle everything from concept to launch with precision and creativity.</p>
-            </div>
-            <div className="flex flex-col justify-end hover:shadow-md hover:shadow-gray-200 transition-shadow p-6 border rounded-2xl border-gray-700 h-[400px]">
-              <h1 className="flex justify-center items-center text-center text-gray-900 pb-7"><BrainCircuit className="w-32 h-32" /></h1>
-              <h1 className="text-3xl mb-8">Problem Solving</h1>
-              <p className="text-xl">A dedicated problem solver to tackle challenges and find effective solutions, I'm here to apply my growing skills and fresh perspective to help you succeed.</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center min-h-[700px] mt-12">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-900">My Skills</h1>
-          <HoverEffect items={projects} />
-        </div>
-        <div className="flex flex-col justify-center items-center min-h-[700px] mt-12">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-900">My Projects</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-            <LinkPreview url={'https://studio-ai-five.vercel.app/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">StudioAI</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">An AI-powered video generation and editing platform with a credit-based system and integrated payment gateway for seamless transactions. Enabled users to purchase credits to access advanced video creation and smart editing.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-            <LinkPreview url={'https://trekon-1.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">TrekOn</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">A responsive web application for travel enthusiasts to explore trending destinations, book adventure activities, and a secure payment gateway. The platform features an intuitive UI with dynamic routing using React Router and real-time chat functionality using Socket.io for enhanced customer engagement.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-            <LinkPreview url={'https://shopme-1.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">ShopMe</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">A full-stack electronics e-commerce website using the MERN stack. Implemented features such as user authentication, product listing, shopping cart, order management, and a secure payment gateway.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-            <LinkPreview url={'https://rounakkishan28.github.io/Move_It/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">MoveIt</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">A responsive frontend web application for a courier service, enabling users to track shipments and calculate delivery costs. The application features an intuitive interface, interactive forms, and real-time updates using modern frontend technologies like HTML and CSS to enhance user experience and accessibility.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-            <LinkPreview url={'https://rounakkishan28.github.io/Event-Hub/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">EventHub</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">A interactive frontend web page for an event management platform using HTML and CSS. The page included a visually appealing layout with sections for event details, schedules, and contact information, along with hover effects and a navigation menu for seamless user interaction.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-            <LinkPreview url={'https://todolist-wob8.onrender.com/'} className="text-white font-bold p-6 pt-14 border border-gray-700 rounded-xl">
-              <h1 className="text-4xl mb-4">TodoList</h1>
-              <p className="text-gray-300 text-xl font-normal mb-2">A simple yet effective To-Do List web application using React.js for managing tasks. The app allows users to add, edit, and delete tasks, with real-time updates stored in the browser’s localStorage for persistence across sessions. Built with React.js to provide a smooth, dynamic user experience.</p>
-              <p className="text-blue-800 font-light">Click here</p>
-            </LinkPreview>
-          </div>
-        </div>
-        <footer className="text-gray-200 py-8 px-4 mt-12">
-          <div className="flex flex-col justify-center items-center mb-16">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-b from-neutral-100 to-gray-900">Let's work together</h1>
-            <p className="text-gray-300 text-xl sm:text-3xl mt-12">Get in touch</p>
-            <p className="-mt-4">_______</p>
-          </div>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            {/* Company Information */}
-            <div className="flex flex-col space-y-4">
-              <p className="text-sm text-gray-400">
-                Designed & Developed by
-              </p>
-              <h2 className="text-3xl font-bold tracking-wide bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-white to-slate-900 cursor-pointer">Rounak Kishan</h2>
-              <div className="flex space-x-4 mt-2">
-                <a href="https://www.facebook.com/rounak.kishan.3" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
-                  <Facebook width={20} height={20} />
-                </a>
-                <a href="https://x.com/rounak_kishan28" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition">
-                  <Twitter width={20} height={20} />
-                </a>
-                <a href="https://www.instagram.com/_rounak_kishan/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition">
-                  <Instagram width={20} height={20} />
-                </a>
-                <a href="https://www.linkedin.com/in/rounak-kishan-931394257/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
-                  <Linkedin width={20} height={20} />
-                </a>
+              <p className="text-sm text-gray-400">Designed & Developed by</p>
+              <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-white to-slate-900">Rounak Kishan</h2>
+              <div className="mt-4 flex gap-4">
+                {social.map(({ Icon, href, label }, i) => (
+                  <a key={i} aria-label={label} href={href} target="_blank" rel="noreferrer" className="p-2 rounded-md border border-transparent hover:border-white/10">
+                    <Icon width={18} height={18} />
+                  </a>
+                ))}
               </div>
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex flex-col space-y-4">
+            <div>
               <h3 className="text-lg font-semibold text-slate-300">Contact</h3>
-              <div className="flex flex-col gap-5">
-                <p className="flex gap-3 text-sm hover:text-gray-400 transition"><Phone /> +91 91552 72627</p>
-                <p className="flex gap-3 text-sm hover:text-gray-400 transition"><Mail /> rounakkishan28@gmail.com</p>
+              <div className="mt-3 flex flex-col gap-2 text-sm">
+                <a href="tel:+919155272627" className="flex items-center gap-2 hover:text-gray-300"><Phone /> +91 91552 72627</a>
+                <a href="mailto:rounakkishan28@gmail.com" className="flex items-center gap-2 hover:text-gray-300"><Mail /> rounakkishan28@gmail.com</a>
               </div>
             </div>
           </div>
 
-          {/* Footer Bottom */}
-          <div className="mt-8 border-t border-gray-700 pt-4 text-center text-base text-gray-500">
-            <p className="flex items-center justify-center">© {new Date().getFullYear()}. All rights reserved.</p>
-          </div>
+          <div className="mt-6 text-center text-sm text-gray-500">© {new Date().getFullYear()}. All rights reserved.</div>
         </footer>
       </div>
+
       <BackgroundBeams />
     </div>
   );
