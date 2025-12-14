@@ -90,7 +90,7 @@ export default function Home() {
 
           <div className="flex items-center gap-4">
             <a
-              href="./Rounak Kishan.pdf"
+              href="./Rounak.pdf"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-600 bg-gradient-to-b from-white/3 to-transparent text-sm font-medium hover:scale-105 transition"
               aria-label="Download resume"
             >
